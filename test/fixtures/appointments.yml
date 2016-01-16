@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_name: Ibrahim Tolaj
+  appointment_note: Do it!
+  technician_name: Ilya Dobrodeev
+  phone_number: +3065845
+  appointment_type: Installation
+  address: Str. Paper Towns, Vally Point
+  product_model: LG Home Sweet Home
+  appointment_date: 2016-01-11
+  status: Pending
+
+two:
+  customer_name: Ibrahim Tolaj
+  appointment_note: Do it!
+  technician_name: Ilya Dobrodeev
+  phone_number: +3065845
+  appointment_type: Installation
+  address: Str. Paper Towns, Vally Point
+  product_model: LG Home Sweet Home
+  appointment_date: 2016-01-11
+  status: Pending

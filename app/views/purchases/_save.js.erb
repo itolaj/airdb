@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if @purchase.errors.any? %>
+  <% @purchase.errors.full_messages.each do |message| %>
+    $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+  <% end %>
+<% else %>
+  $(".purchase-index").html("<%= escape_javascript(render 'index') %>")
+  $("#purchase-modal").modal("hide")
+<% end %>

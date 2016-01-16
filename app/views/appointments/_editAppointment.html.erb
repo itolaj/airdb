@@ -1,0 +1,47 @@
+<%= form_for @appointment, remote: true, html: { style: "display:inline;" } do |f| %>
+
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon2">Customer Name:</span>
+  <%= f.select( :customer_name,  Customer.all.map {|u| [u.customer_name]}, {:include_blank => true}, {class: "form-control"}) %>
+  </div><br>
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon2">Technician Name:</span>
+    <%= f.select( :technician_name,  User.all.map {|a| [a.name]}, {:include_blank => true}, {class: "form-control"}) %>
+</div><br>
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon2">Phone Number:</span>
+  <%= f.text_field :phone_number, class: "form-control" %>
+</div><br>
+  <div class="input-group">
+  <span class="input-group-addon" id="basic-addon2">Appointment Type:</span>
+  <%= f.text_field :appointment_type, class: "form-control" %>
+</div><br>
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon2">Address:</span>
+  <%= f.text_field :address, class: "form-control" %>
+</div><br>
+  <div class="input-group">
+  <span class="input-group-addon" id="basic-addon2">Product Model:</span>
+  <%= f.select( :product_model,  Product.all.map {|e| [e.product_model]}, {:include_blank => true}, {class: "form-control"}) %>
+</div><br>
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon2">Appointment note:</span>
+  <%= f.text_area :appointment_note, class: "form-control" %>
+</div><br>
+<div class="input-group">
+ <span class="input-group-addon" id="basic-addon2">Appointment date:</span>
+  <%= f.date_select :appointment_date, class: "form-control" %>
+</div><br>
+<div class="dropdown">
+  <%= f.label :select_status %><br>
+  <%= f.select(:status, options_for_select([ ["No Status"], ["Pending"], ["Done"] ]), {}, {class: "form-control"}) %>
+</button><br>
+    <div class="actions">
+      <%= f.submit 'Apply Changes', class: "btn btn-primary" %>
+      <button type="button" class="btn btn-lg-primary"><%= link_to 'Save', @appointment %></button>
+      </div>
+      <div class="input-group">
+        <br>
+        <p><em>Please click <strong>Apply Changes</strong> first and then cick <strong>Save</strong></em><p>
+        </div>
+<%end%>

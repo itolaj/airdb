@@ -1,0 +1,32 @@
+<div class="container"><p></p>
+  <div class="well">
+    <%= link_to "New User", new_user_path, remote: true, class: "btn btn-primary" %>
+    <%= render 'searchbar/searchUsers' %>
+  </div>
+  <div class="new-user"></div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Registration date</th>
+        <th>Expiration date</th>
+        <th>Personal number</th>
+        <th>Phone number</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>User role</th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </thead>
+    <tbody class="user-index">
+      <%= render "index" %>
+    </tbody>
+  </table>
+</div>
+<div id="user-modal" class="modal fade"></div>
+
+<%= will_paginate @users, renderer: BootstrapPagination::Rails %>

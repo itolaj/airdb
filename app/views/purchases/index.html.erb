@@ -1,0 +1,29 @@
+<div class="container"><p></p>
+  <div class="well">
+    <%= link_to "New Purchase", new_purchase_path, remote: true, class: "btn btn-primary" %>
+    <%= render 'searchbar/searchPurchases' %>
+  </div>
+  <div class="new-purchase"></div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Customer name</th>
+        <th>Product model</th>
+        <th>Price</th>
+        <th>Purchase date</th>
+        <th>Maintnance date</th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </thead>
+    <tbody class="purchase-index">
+      <%= render "index" %>
+    </tbody>
+  </table>
+</div>
+<div id="purchase-modal" class="modal fade"></div>
+
+<%= will_paginate @purchases, renderer: BootstrapPagination::Rails %>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<% if notice %>
+<div id="notice_wrapper">
+  <p class="notice"><%= notice %></p>
+</div>
+<%elsif alert%>
+<div id="notice_wrapper">
+<p class="alert"><%= alert %></p>
+</div>
+<%end%>
+
+<head>
+
+<title>Airdb</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <br><br><br>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <img src="http://i.imgur.com/ZPI7Osx.jpg" alt="airdb">
+      <%if user_signed_in?%>
+        <ul class="nav nav-pills" align="right">
+          <p> You are signed in as: <%= current_user.user_role%> <%= current_user.name %></p>
+          <p align="right"><%= button_to "Sign Out", destroy_user_session_path, :class => "btn btn-sm btn-info", :method => :delete  %></p>
+        </ul>
+      <%end%>
+  </head>
+<br>
+<body class="container">
+
+
+<%if user_signed_in?%>
+    <%if current_user.user_role == "Director"%>
+      <%= render 'layouts/administrator'%>
+    <%end%>
+  <%if current_user.user_role == "Secretary"%>
+      <%= render 'layouts/secretary' %>
+  <%end%>
+  <%if current_user.user_role == "Technician"%>
+      <%= render 'layouts/technician' %>
+  <%end%>
+  <%if current_user.user_role == nil%>
+      <%= render 'layouts/administrator' %>
+  <%end%>
+<%end%>
+<%= yield %>
+<script>
+$(document).ready(function(){
+  setTimeout(function(){
+    $('#notice_wrapper').fadeOut("slow", function(){
+      $(this).remove();
+    })
+  }, 4500);
+});
+</script>
+</body>
+<footer>
+<div class="container" style="height:200px;"></div>
+
+</footer>
+</html>

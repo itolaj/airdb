@@ -1,0 +1,13 @@
+<% @purchases.each do |purchase| %>
+  <tr>
+    <td><%= purchase.id %></td>
+    <td><%= purchase.customer_name %></td>
+    <td><%= purchase.product_model %></td>
+    <td><%= purchase.price %></td>
+    <td><%= purchase.purchase_date %></td>
+    <td><%= purchase.maintnance_date %></td>
+        <td><%= link_to 'View', purchase, class: "btn btn-sm btn-success" %></td>
+        <td><%= link_to "Edit", edit_purchase_path(purchase), remote: true, class: "btn btn-default" %></td>
+    <td><%= link_to "Delete", purchase_delete_path(purchase), remote: true, class: "btn btn-danger" %></td>
+  </tr>
+<% end %>

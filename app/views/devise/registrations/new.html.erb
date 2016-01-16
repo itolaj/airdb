@@ -1,0 +1,56 @@
+
+<br>
+  <body align="center">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="col-md-4"></div>
+        <div class="container" style="margin-top: 30px">
+          <div class="col-md-4">
+            <div class="login-panel panel panel-default">
+              <div class="panel-heading">
+                <h1 class="panel-title">Sign Up</h1>
+              </div>
+            <div class="panel-body">
+              <form>
+                <fieldset>
+                  <div class="form-group" >
+                    <label for="email">Email</label>
+                      <%= f.email_field :email, autofocus: true, class: "form-control"%>
+                    </div>
+                  <div class="form-group">
+                    <label for="pwd">Password</label>
+                        <% if @minimum_password_length %>
+                        <em>(<%= @minimum_password_length %> characters minimum)</em>
+                        <% end %><br />
+                        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+                    </div>
+                    <div class="form-group">
+                      <label for="pwd">Password Confirmation</label>
+                        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+                      </div>
+                      <button type="submit" class="btn btn-sm btn-success">Sign Up</button><em> or </em>
+                      <button type="submit" class="btn btn-sm btn-default"><%= link_to 'Back', new_user_session_path %></button>
+                </fieldset>
+              </form>
+            </div>
+
+            <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+              <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+            <% end -%>
+
+            </div>
+        </div>
+    <%end%>
+  </body>
+
+  <h4> Please read this: </h4>
+  <p>Your first sign up will be asigned without a user name, role, address and other information</p>
+  <p>After signing in, please go to the "users" page and edit your information</p>
+  <p>When you're finished you will be redirected to the "Sign in" screen to sign in again.</p>
+  <strong><em> Assigning roles </em></strong>
+  <p> Director can :manage :all </p>
+  <p> Secretary can :manage, Products, Customers, Appointments, Purchases <p>
+  <p> Technician can: read, Products and Appointments </p>
+
+<% end %>

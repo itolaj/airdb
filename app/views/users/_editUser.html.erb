@@ -1,0 +1,53 @@
+<%= form_for @user, remote: true, html: { style: "display:inline;" } do |f| %>
+
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon2">User Name:</span>
+    <%= f.text_field :name, class: "form-control" %>
+  </div><br>
+<div class="input-group">
+<span class="input-group-addon" id="basic-addon2">Personal Number:</span>
+<%= f.number_field :personal_number, class: "form-control" %>
+</div><br>
+<div class="input-group">
+<span class="input-group-addon" id="basic-addon2">Phone Number:</span>
+<%= f.number_field :phone_number, class: "form-control" %>
+</div><br>
+<div class="input-group">
+<span class="input-group-addon" id="basic-addon2"> Email:</span>
+<%= f.email_field :email, class: "form-control" %>
+</div><br>
+<div class="input-group">
+<span class="input-group-addon" id="basic-addon2"> Password:</span>
+<%= f.password_field :password, class: "form-control" %>
+</div><br>
+<div class="input-group">
+<span class="input-group-addon" id="basic-addon2"> Password Confirmation:</span>
+<%= f.password_field :password_confirmation, class: "form-control" %>
+</div><br>
+
+<div class="input-group">
+<span class="input-group-addon" id="basic-addon2">Home Address:</span>
+  <%= f.text_field :address, class: "form-control" %>
+</div><br>
+<div class="input-group">
+<span class="input-group-addon" id="basic-addon2">Registration Date:</span>
+<%= f.date_select :registration_date, class: "form-control" %>
+</div><br>
+<div class="input-group">
+<span class="input-group-addon" id="basic-addon2">Expiration Date:</span>
+<%= f.date_select :expiration_date, classs: "form-control" %>
+</div><br>
+<div class="dropdown">
+<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Choose Role<span class="caret"></span>
+</button>
+<%= f.select(:user_role, options_for_select([ ["Director"], ["Secretary"], ["Technician"]])) %>
+</div><br>
+    <div class="actions">
+      <%= f.submit 'Apply Changes', class: "btn btn-primary" %>
+      <button type="button" class="btn btn-lg-primary"><%= link_to 'Save', @user %></button>
+      </div>
+      <div class="input-group">
+        <br>
+        <p><em>Please click <strong>Apply Changes</strong> first and then cick <strong>Save</strong></em><p>
+        </div>
+<%end%>

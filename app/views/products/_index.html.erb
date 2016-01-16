@@ -1,0 +1,14 @@
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.id %></td>
+    <td><%= link_to image_tag(product.asset.thumb('92x92#').url, class: 'img-thumbnail'), product %></td>
+    <td><%= product.product_name %></td>
+    <td><%= product.product_model %></td>
+    <td><%= product.serial_number %></td>
+    <td>$<%= product.price %></td>
+    <td><%= product.stock %></td>
+        <td><%= link_to 'View', product, class: "btn btn-sm btn-success" %></td>
+        <td><%= link_to "Edit", edit_product_path(product), remote: true, class: "btn btn-default" %></td>
+    <td><%= link_to "Delete", product_delete_path(product), remote: true, class: "btn btn-danger" %></td>
+  </tr>
+<% end %>

@@ -1,0 +1,12 @@
+<p>Hi, <%= @appointment_user.name %>, <%= @current_user.name %> left a note on apppointment id: <%= @appointment.id %></p>
+<h2><p>Status: <%= @status %> </p></h2>
+<h2><p>Appointment details:</p></h2>
+<p><strong> Customer name: </strong><%= @appointment.customer_name %> </p>
+<p><strong> Technician name: </strong><%= @appointment.technician_name %> </p>
+<p><strong> Appointment date: </strong><%= @appointment.appointment_date %> </p>
+<p><strong> Phone number: </strong><%= @appointment.phone_number %> </p>
+<p><strong> Address(Location): </strong><%= @appointment.address %> </p>
+<p><strong> Appointment type: </strong><%= @appointment.appointment_type %> </p>
+<br>
+<h3><p>Note text:</p></h3>
+<p> <%= @content %> </p>

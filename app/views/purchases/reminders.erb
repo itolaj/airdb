@@ -1,0 +1,27 @@
+<div class="container"><p></p>
+  <div class="well">
+    <%= link_to "New Appointment", new_appointment_path, remote: true, class: "btn btn-primary" %>
+    <%= render 'searchbar/searchAppointments' %>
+  </div>
+  <div class="new-reminder"></div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Customer name</th>
+        <th>Product model</th>
+        <th>Price</th>
+        <th>Purchase date</th>
+        <th>Maintnance date</th>
+        <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody class="reminder">
+      <%= render "reminders" %>
+    </tbody>
+  </table>
+</div>
+<div id="appointment-modal" class="modal fade"></div>
+
+<%= will_paginate @appointments, renderer: BootstrapPagination::Rails %>

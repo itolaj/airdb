@@ -1,0 +1,30 @@
+<div class="container"><p></p>
+  <div class="well">
+    <%= link_to "New Product", new_product_path, remote: true, class: "btn btn-primary" %>
+    <%= render 'searchbar/searchProducts' %>
+  </div>
+  <div class="new-product"></div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Product name</th>
+        <th>Product model</th>
+        <th>Serial number</th>
+        <th>Price $</th>
+        <th>Stock</th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </thead>
+    <tbody class="product-index">
+      <%= render "index" %>
+    </tbody>
+  </table>
+</div>
+<div id="product-modal" class="modal fade"></div>
+
+<%= will_paginate @products, renderer: BootstrapPagination::Rails %>

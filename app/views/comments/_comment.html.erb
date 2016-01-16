@@ -1,0 +1,10 @@
+<p><strong><%= comment.status%> </strong> <%= comment.content %></p>
+<%if comment.status == "Done"%>
+  <div class="alert alert-success" role="alert">Done! This appointment is finished </div>
+<%end%>
+<%if comment.status == "Pending"%>
+  <div class="alert alert-danger" role="alert"> Pending! This appointment is still pending </div>
+<%end%>
+<%if comment.status == "No Status" %>
+  <div class="alert alert-warning" role="alert"> No Status. This appointment is still in proccess </div>
+<%end%>

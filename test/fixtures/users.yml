@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+first:
+  name: Ibrahim
+  registration_date: 2015-11-21
+  expiration_date: 2015-11-21
+  personal_number: 1
+  phone_number: 1
+  email: ibrahim@tolaj.com
+  address: PaperTowns
+  user_role: Director
+
+one:
+  name: Ibrahim
+  registration_date: 2015-11-21
+  expiration_date: 2015-11-21
+  personal_number: 1
+  phone_number: 1
+  email: ibrahim@one.com
+  address: PaperTowns
+  user_role: Director
+
+two:
+  name: Ibrahim
+  registration_date: 2015-11-21
+  expiration_date: 2015-11-21
+  personal_number: 1
+  phone_number: 1
+  email: ibrahim@two.com
+  address: PaperTowns
+  user_role: Director

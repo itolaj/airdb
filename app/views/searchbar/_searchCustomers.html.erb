@@ -1,0 +1,12 @@
+  <div class="pull-right">
+    <form class="navbar-form" role="search">
+      <div class="input-group">
+        <%= form_tag(customers_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+          <div class="input-append">
+            <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Customer" %>
+              <button class="btn" type="submit">Search<i class="icon-search"></i></button>
+                </div>
+          <%end%>
+        </div>
+      </form>
+    </div>

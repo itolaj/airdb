@@ -1,0 +1,13 @@
+<% @purchases.each do |purchase| %>
+<% if purchase.maintnance_date == Date.tomorrow %>
+  <tr>
+    <td><%= purchase.id %></td>
+    <td><%= purchase.customer_name %></td>
+    <td><%= purchase.product_model %></td>
+    <td><%= purchase.price %></td>
+    <td><%= purchase.purchase_date %></td>
+    <td><%= purchase.maintnance_date %></td>
+        <td><%= link_to 'View', purchase, class: "btn btn-sm btn-success" %></td>
+    </tr>
+  <% end %>
+<% end %>

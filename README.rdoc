@@ -1,0 +1,31 @@
+README
+
+* Ruby version: 2.1.5
+
+* Rails version: 4.2.4
+
+
+  For localhost
+
+* Commands you need to execute to successfully run the application:
+  bundle install
+  bundle update
+  rake db:migrate
+
+  1. At the first visit on the localhost link, you will be presented to the login screen.
+  The first thing you need to do in order to use the system you need to sign up first, by clicking the "Sign up" button,
+  from there you will be redirected to the Sign Up page, where you are required to complete the sign up form.
+  After the sign up you will be redirected to the Home page of the system.
+  2. Before going ahead to use the system you need to make a change in the routes file in the directory under: config/routes.rb
+
+  line 3: 	<tt>devise_for :users#, :skip => [:registrations]</tt>
+            change to
+  	        <tt>devise_for :users, :skip => [:registrations]</tt>
+
+  After doing this create a user in the user page and assign the role to directer,
+  sign out and sign in again with the new user account that you just created.
+  You are done with the configuration and installing the web-application, so you are ready to use it and test it.
+
+  For testing the application in Heroku click this link: http://airdb.herokuapp.com/
+  Here you don't need to sign up, we already created users so you may use the system.
+  

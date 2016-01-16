@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_name: MyString
+  product_name: MyString
+  product_model: MyString
+  price: 1
+  purchase_date: 2015-11-21
+  maintnance_date: 2015-11-21
+
+two:
+  customer_name: MyString
+  product_name: MyString
+  product_model: MyString
+  price: 1
+  purchase_date: 2015-11-21
+  maintnance_date: 2015-11-21

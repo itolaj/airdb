@@ -1,0 +1,13 @@
+<%= form_for([@appointment, @appointment.comments.build]) do |f| %>
+<div class="dropdown">
+  <%= f.label :select_status %><br>
+  <%= f.select(:status, options_for_select([ ["No Status"], ["Pending"], ["Done"] ]), {}, {class: "form-control"}) %>
+</button><br>
+<div class="field">
+  <%= f.label "Write a note: " %><br>
+  <%= f.text_area :content, class: "form-control" %>
+</div><br>
+<div class="actions">
+  <%= f.submit "Send Note", class: "btn btn-primary" %>
+</div>
+<% end %>

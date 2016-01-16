@@ -1,0 +1,2 @@
+module AirdbHelper
+end

@@ -1,0 +1,89 @@
+<div class="container">
+  <p></p>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <p><h4> Appointment details <h4></p>
+    </ul>
+    <div class="col-sm-3 col-md-3 pull-right">
+      <form class="navbar-form" role="search">
+        <div class="input-group">
+          <p>Appointment Id: <%= @appointment.id %></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Customer Name</th>
+        <th>Technician Name</th>
+        <th>Phone Number</th>
+        <th>Appointment type</th>
+        <th>Address</th>
+        <th>Product Model</th>
+        <th>Appointment Date</th>
+        <th>Appointment Note</th>
+        <th>Appointment Status</th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><%= @appointment.id %></td>
+      <td><%= @appointment.customer_name %></td>
+      <td><%= @appointment.technician_name %></td>
+      <td><%= @appointment.phone_number %></td>
+      <td><%= @appointment.appointment_type %></td>
+      <td><%= @appointment.address %></td>
+      <td><%= @appointment.product_model %></td>
+      <td><%= @appointment.appointment_date %></td>
+      <td><%= @appointment.appointment_note %></td>
+      <td><%= @appointment.status %></td>
+          <% if can? :update, @appointment %>
+            <td><%= link_to 'Edit',  '#', 'data-target' => "#myModal_#{@appointment.id}", 'data-toggle' => 'modal', class: "btn btn-sm btn-default" %></td>
+                <div class="modal fade" id='<%= "myModal_#{@appointment.id}" %>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Editing Appointment </h4>
+                        <ul class="errors"></ul>
+                      </div>
+                      <div class="modal-body">
+                        <%= render 'editAppointment'%>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+          <%end%>
+            <td><%= link_to 'Back', customers_path, class: "btn btn-sm btn-primary" %></td>
+    </tr>
+   </tbody>
+ </table>
+
+ <div calss='row'>
+   <div class='col-sm-5'>
+     <%= render "comments/form" %>
+   </p>
+ </div>
+</div>
+   <div calss='row'>
+     <div class='col-sm-5'>
+       <strong>The list of Notes: </strong></br>
+       <p>
+         <p><strong>Secretary a note for you:</strong></p>
+         <%= @appointment.appointment_note %>
+       </p><br>
+         <%= render @appointment.comments %><br>
+       <p>
+       </div>
+     </div>
+    </div>
+   </div>
+ </nav>

@@ -1,0 +1,16 @@
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.name %></td>
+    <td><%= user.registration_date %></td>
+    <td><%= user.expiration_date %></td>
+    <td><%= user.personal_number %></td>
+    <td><%= user.phone_number %></td>
+    <td><%= user.email %></td>
+    <td><%= user.address %></td>
+    <td><%= user.user_role %></td>
+        <td><%= link_to 'View', user, class: "btn btn-sm btn-success" %></td>
+        <td><%= link_to "Edit", edit_user_path(user), remote: true, class: "btn btn-default" %></td>
+    <td><%= link_to "Delete", user_delete_path(user), remote: true, class: "btn btn-danger" %></td>
+  </tr>
+<% end %>

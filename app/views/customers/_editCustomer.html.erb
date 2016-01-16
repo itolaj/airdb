@@ -1,0 +1,42 @@
+<%= form_for @customer, remote: true, html: { style: "display:inline;" } do |f| %>
+    
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon2">Name:</span>
+    <%= f.text_field :customer_name, class: "form-control" %>
+  </div><br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon2">Username:</span>
+      <%= f.text_field :username, class: "form-control" %>
+    </div><br>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon2">Registration date disabled</span>
+      <%= f.date_select :registration_date, class: "form-control"%>
+    </div><br>
+
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Email:</span>
+        <%= f.text_field :email, class: "form-control" %>
+      </div><br>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Phone number:</span>
+        <%= f.text_field :phone_number, class: "form-control" %>
+      </div><br>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Home address:</span>
+        <%= f.text_field :address, class: "form-control" %>
+      </div><br>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon2">Gender:</span>
+        <%= f.select(:gender, options_for_select([ ["Male"], ["Female"]])) %>
+      </div><br>
+
+    <div class="actions">
+      <%= f.submit 'Apply Changes', class: "btn btn-primary" %>
+      <button type="button" class="btn btn-lg-primary"><%= link_to 'Save', @customer %></button>
+      </div>
+      <div class="input-group">
+        <br>
+        <p><em>Please click <strong>Apply Changes</strong> first and then cick <strong>Save</strong></em><p>
+        </div>
+<%end%>
