@@ -1,11 +1,9 @@
 <div class="container"><p></p>
-  <%if  current_user.user_role == "Director" || current_user.user_role == "Secretary"  %>
   <div class="well">
     <%= link_to "New Appointment", new_appointment_path, remote: true, class: "btn btn-primary" %>
     <%= render 'searchbar/searchAppointments' %>
   </div>
   <div class="new-appointment"></div>
-  <%end%>
 
   <table class="table table-bordered table-striped">
     <thead>
@@ -25,8 +23,8 @@
         <td>&nbsp;</td>
       </tr>
     </thead>
-    <tbody class="appointment-dailyappointments">
-      <%= render "dailyAppointments" %>
+    <tbody class="appointment-tomorrowappointments">
+      <%= render "appointmentsForTomorrow" %>
     </tbody>
   </table>
 </div>

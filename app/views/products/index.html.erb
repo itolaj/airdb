@@ -1,10 +1,11 @@
 <div class="container"><p></p>
+    <%if  current_user.user_role == "Director" || current_user.user_role == "Secretary"  %>
   <div class="well">
     <%= link_to "New Product", new_product_path, remote: true, class: "btn btn-primary" %>
     <%= render 'searchbar/searchProducts' %>
   </div>
   <div class="new-product"></div>
-
+<%end%>
   <table class="table table-bordered table-striped">
     <thead>
       <tr>

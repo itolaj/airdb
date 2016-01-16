@@ -8,7 +8,11 @@
     <td>$<%= product.price %></td>
     <td><%= product.stock %></td>
         <td><%= link_to 'View', product, class: "btn btn-sm btn-success" %></td>
+        <% if can? :update, @product %>
         <td><%= link_to "Edit", edit_product_path(product), remote: true, class: "btn btn-default" %></td>
+        <%end%>
+        <% if can? :destroy, @product %>
     <td><%= link_to "Delete", product_delete_path(product), remote: true, class: "btn btn-danger" %></td>
+    <%end%>
   </tr>
 <% end %>

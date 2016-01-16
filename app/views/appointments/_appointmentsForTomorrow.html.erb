@@ -1,5 +1,5 @@
 <% @appointments.each do |appointment| %>
-<% if appointment.appointment_date <= 7.days.from_now%>
+<% if appointment.appointment_date == Date.tomorrow %>
     <%if appointment.status == "No Status"%>
   <tr>
     <td><%= appointment.id %></td>
@@ -13,12 +13,8 @@
     <td><%= appointment.appointment_note %></td>
     <td><%= appointment.status %></td>
         <td><%= link_to 'View', appointment, class: "btn btn-sm btn-success" %></td>
-        <% if can? :update, @appointment %>
         <td><%= link_to "Edit", edit_appointment_path(appointment), remote: true, class: "btn btn-default" %></td>
-        <%end%>
-        <% if can? :destroy, @appointment %>
     <td><%= link_to "Delete", appointment_delete_path(appointment), remote: true, class: "btn btn-danger" %></td>
-    <%end%>
   </tr>
 <% end %>
 <% end %>

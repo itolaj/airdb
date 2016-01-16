@@ -1,0 +1,61 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <p><h4> Weekly Appointments <h4></p>
+</nav>
+
+<% if can? :create, @appointment %>
+<%= link_to 'New Appointment', new_appointment_path, class: "btn btn-lg btn-primary" %>
+<%end%>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Customer Name</th>
+      <th>Technician Name</th>
+      <th>Phone Number</th>
+      <th>Appointment type</th>
+      <th>Address</th>
+      <th>Product Model</th>
+      <th>Appointment Date</th>
+      <th>Appointment Note</th>
+      <th>Appointment Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appointments.each do |appointment| %>
+    <% if appointment.appointment_date <= 7.days.from_now%>
+      <%if current_user.user_role == "Technician" && current_user.name == appointment.technician_name %>
+        <%if appointment.status == "No Status"%>
+      <tr>
+        <td><%= appointment.id %></td>
+        <td><%= appointment.customer_name %></td>
+        <td><%= appointment.technician_name %></td>
+        <td><%= appointment.phone_number %></td>
+        <td><%= appointment.appointment_type %></td>
+        <td><%= appointment.address %></td>
+        <td><%= appointment.product_model %></td>
+        <td><%= appointment.appointment_date %></td>
+        <td><%= appointment.appointment_note %></td>
+        <td><%= appointment.status %></td>
+        <td><%= link_to 'View', appointment, class: "btn btn-sm btn-success" %></td>
+        <% if can? :update, @appointment %>
+          <td><%= link_to 'Edit', edit_appointment_path(appointment), class: "btn btn-sm btn-info" %></td>
+        <%end%>
+        <% if can? :destroy, @appointment %>
+          <td><%= button_to 'Delete', appointment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
+        <%end%>
+      </tr>
+    <%end%>
+  <%end%>
+<%end%>
+<%end%>
+</tbody>
+<%if  current_user.user_role == "Director" || current_user.user_role == "Secretary"  %>
+  <%= render 'weeklyAppointments' %>
+<% end %>
+</table>
+<%= will_paginate @appointments, renderer: BootstrapPagination::Rails %>

@@ -1,0 +1,21 @@
+<% @appointments.each do |appointment| %>
+<tr>
+  <td><%= appointment.id %></td>
+  <td><%= appointment.customer_name %></td>
+  <td><%= appointment.technician_name %></td>
+  <td><%= appointment.phone_number %></td>
+  <td><%= appointment.appointment_type %></td>
+  <td><%= appointment.address %></td>
+  <td><%= appointment.product_model %></td>
+  <td><%= appointment.appointment_date %></td>
+  <td><%= appointment.appointment_note %></td>
+  <td><%= appointment.status %></td>
+  <td><%= link_to 'View', appointment, class: "btn btn-sm btn-success" %></td>
+    <% if can? :update, @appointment %>
+  <td><%= link_to 'Edit', edit_appointment_path(appointment), class: "btn btn-sm btn-info" %></td>
+    <%end%>
+    <% if can? :destroy, @appointment %>
+  <td><%= button_to 'Delete', appointment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
+    <%end%>
+</tr>
+<%end%>
