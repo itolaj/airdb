@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   #this allowes the director to create users
   #please uncoment #, :skip => [:registrations] after you have made your first sign up so you can be able to create users from the table
-  devise_for :users#, :skip => [:registrations]
+  devise_for :users, :skip => [:registrations]
   devise_scope :user do
   get "signup",   :to => "users#new"
   get "signin",   :to => "devise/sessions#new"
