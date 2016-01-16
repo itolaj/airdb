@@ -14,47 +14,26 @@
   </div>
 </nav>
 
-
-<p>
-  <strong>Customer name:</strong>
-  <%= @purchase.customer_name %>
-</p>
-
-<p>
-  <strong>Product model:</strong>
-  <%= @purchase.product_model %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @purchase.price %>
-</p>
-
-<p>
-  <strong>Purchase date:</strong>
-  <%= @purchase.purchase_date %>
-</p>
-
-<p>
-  <strong>Maintnance date:</strong>
-  <%= @purchase.maintnance_date %>
-</p>
-<% if can? :update, @product %>
-<td><%= link_to 'Edit',  '#', 'data-target' => "#myModal_#{@purchase.id}", 'data-toggle' => 'modal', class: "btn btn-sm btn-default" %></td>
-    <div class="modal fade" id='<%= "myModal_#{@purchase.id}" %>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">Editing Purchase </h4>
-          </div>
-          <div class="modal-body">
-            <%= render 'editPurchase'%>
-          </div>
-        </div>
-      </div>
-    </div>
-  </td> |
-<%end%>
-  <%= link_to 'Back', purchases_path, class: "btn btn-sm btn-primary" %>
-</div>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Customer name</th>
+      <th>Product Model </th>
+      <th>Price</th>
+      <th>Purchase Date</th>
+      <th>Meintenance Date</th>
+      <td>&nbsp;</td>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+        <td><%= @purchase.customer_name %></td>
+        <td><%= @purchase.product_model %></td>
+        <td><%= @purchase.price %></td>
+        <td><%= @purchase.purchase_date %></td>
+        <td><%= @purchase.maintnance_date %></td>
+        <td><%= link_to 'Back', customers_path, class: "btn btn-sm btn-primary" %></td>
+  </tr>
+ </tbody>
+</table>

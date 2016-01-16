@@ -27,7 +27,6 @@
         <th>Address</th>
         <th>Gender</th>
         <td>&nbsp;</td>
-        <td>&nbsp;</td>
       </tr>
     </thead>
     <tbody>
@@ -40,25 +39,7 @@
           <td><%= @customer.phone_number %></td>
           <td><%= @customer.address %></td>
           <td><%= @customer.gender %></td>
-          <% if can? :update, @customer %>
-            <td><%= link_to 'Edit',  '#', 'data-target' => "#myModal_#{@customer.id}", 'data-toggle' => 'modal', class: "btn btn-sm btn-default" %></td>
-                <div class="modal fade" id='<%= "myModal_#{@customer.id}" %>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">Editing Customer </h4>
-                          <ul class="errors"></ul>
-                      </div>
-                      <div class="modal-body">
-                        <%= render 'editCustomer'%>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </td>
-          <%end%>
-            <td><%= link_to 'Back', customers_path, class: "btn btn-sm btn-primary" %></td>
+          <td><%= link_to 'Back', customers_path, class: "btn btn-sm btn-primary" %></td>
     </tr>
    </tbody>
  </table>
